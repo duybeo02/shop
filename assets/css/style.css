@@ -1,0 +1,186 @@
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Arima", serif;
+}
+
+/*
+1.Từ ngoài vào trong
+2.Từ trên xuống dưới
+3.Từ tổng quan đến chi tiết
+*/
+
+/*
+1.Vị trí
+2.Kích thước
+3.Màu sắc
+4.Kiểu dáng (kiểu chữ, hình dạng, ...
+*/
+
+#main{
+
+}
+
+#header{
+    height: 46px; /*Chiều cao của phần tử*/
+    background-color: #000000; /*Màu nền của phần tử */
+     position: fixed;/*Phần tử được cố định ở vị trí trên màn hình, không thay đổi khi cuộn trang. */
+    top: 0;/*Phần tử nằm sát mép trên của trang*/
+    left: 0;/* Phần tử bắt đầu từ cạnh trái.*/
+    right: 0;/*Phần tử kéo dài hết chiều rộng của trang.*/
+    z-index: 1;/*Xác định thứ tự lớp (layer). Giá trị cao hơn sẽ hiển thị trên các phần tử khác*/
+}
+
+#nav {
+    display: inline-block;/* Biến phần tử thành khối nội tuyến (inline-block), vừa có thể xếp hàng ngang, vừa có thể điều chỉnh kích thước.*/
+}
+
+#nav, .subnav{
+    list-style-type: none;/*Loại bỏ ký hiệu danh sách (bullet points) mặc định.*/
+}
+
+#nav > li{
+    display: inline-block;/*Các mục con (<li>) của menu chính sẽ xếp hàng ngang*/
+}
+
+#nav li{
+    position: relative;/*Đặt vị trí tương đối để hỗ trợ các phần tử con như menu con (.subnav) định vị dựa vào nó.*/
+}
+
+#nav > li > a{
+    color: #fff;/**/
+    text-transform: uppercase;/*Chuyển đổi toàn bộ chữ thành chữ in hoa.*/
+}
+
+#nav li a{
+    text-decoration: none;/*Loại bỏ gạch chân mặc định của liên kết.*/
+    display: block;/*Chuyển liên kết thành khối để dễ dàng thiết lập padding và line-height.*/
+    line-height: 46px;/*Chiều cao dòng của văn bản, giúp căn giữa theo chiều dọc.*/
+    padding: 0 24px;/*Tạo khoảng cách bên trong liên kết, với 24px ở hai bên trái phải*/
+}
+
+#nav li:hover .subnav{
+    display: block;/*Hiển thị menu con (.subnav) khi di chuột qua mục cha (li).*/
+}
+
+#nav .subnav li:hover a,
+#nav > li:hover > a{
+    color: #000000;/*Thay đổi màu chữ thành đen khi di chuột qua liên kết.*/
+    background-color: #ccc;/*Màu nền chuyển sang màu xám nhạt.*/
+}
+
+#nav .nav-font-down{
+    font-size: 13px;/*Kích thước chữ là 13px.*/
+}
+
+#nav .subnav{
+    min-width: 160px;/*Đặt chiều rộng tối thiểu là 160px.*/
+    top:100%;/*Menu con bắt đầu ngay phía dưới mục cha (li).*/
+    left: 0%;/*Căn trái menu con so với mục cha.*/
+    display: none;/*Ẩn menu con mặc định.*/
+    position: absolute;/*Menu con định vị tuyệt đối so với mục cha.*/
+    background-color: #fff;/**/
+    box-shadow: 0 0 10px rgba(0 , 0, 0, 0.3);/*Tạo hiệu ứng bóng với bán kính 10px và độ mờ 30%.*/
+}
+
+#nav .subnav a{
+    color: #000000;/**/
+    display: block;/**/
+    padding: 0 12px;/**/
+    line-height: 40px;/**/
+}
+
+#header .search-btn {
+    float: right;/*Đặt nút tìm kiếm ở phía bên phải.*/
+    padding: 0 21PX;/*Tạo khoảng cách bên trong nút.*/
+}
+
+#header .search-btn:hover{
+    background-color: #f44336;/**/
+    cursor: pointer;/*Con trỏ chuột đổi sang biểu tượng tay chỉ khi di chuột qua.*/
+}
+
+#header .search-icon{
+    color: #fff;/**/
+    font-size: 20px;/**/
+    line-height: 46PX;/*Căn giữa biểu tượng theo chiều dọc.*/
+}
+
+#slider{
+    position: relative;/*Định vị tương đối để hỗ trợ các phần tử con (nếu có).*/
+    margin-top: 46px;/*Tạo khoảng cách trên 46px (để tránh trùng với header).*/
+    padding-top: 50%;/*Chiều cao của slider được thiết lập dựa trên 50% chiều rộng.*/
+    background: url('../img/showslide1.jpg') top center / cover no-repeat;/*
+    -url('../img/showslide1.jpg'): Đặt hình nền.
+    -top center: Căn hình nền phía trên và ở giữa.
+    -cover: Phóng to/thu nhỏ hình nền để bao phủ toàn bộ phần tử.
+    -no-repeat: Không lặp lại hình nền.*/
+}
+#slider .text-content{
+    position: absolute;/**/
+    bottom: 47px;/**/
+    color: #fff;/**/
+     width: 100%; /*Căn chữ ra giữa */
+    /* Những cách khác căn chữ trong backgroup ra giữa
+    Cách 1:
+    left: 50%;
+    transform: translateX(-50%); 
+    Cách 2:
+    left: 0;
+    right: 0;*/
+    text-align: center;/**/
+}
+
+#slider .text-heading{
+    font-weight: 600;/*Căn chỉnh độ dày của chữ*/
+    font-size: 24px;/*Căn chỉnh kích cỡ của chữ*/
+}
+
+#slider .text-discription{
+    font-size: 15px;/**/
+    margin-top: 15px;/**/
+}
+
+#content{
+
+}
+
+#content .content-section{
+    width: 800px;
+    padding: 64px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .section-heading{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+#content .about-text{
+    margin-top: 25px;
+    font-size: 15px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+#footer{
+
+}
+
